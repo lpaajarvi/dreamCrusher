@@ -27,30 +27,30 @@ class ButtonHandler(var host: AppCompatActivity) {
 
 
     fun pressButton(button: Button) {
-        host.runOnUiThread {
-            button.setBackgroundColor(pressedBgColor)
-            button.setTextColor(pressedTextColor)
-            pressedButtons.add(button)
-        }
+
+        button.setBackgroundColor(pressedBgColor)
+        button.setTextColor(pressedTextColor)
+        pressedButtons.add(button)
+
     }
     fun unpressButton(button: Button) {
-        host.runOnUiThread {
-            button.setBackgroundColor(unpressedBgColor)
-            button.setTextColor(unpressedTextColor)
 
-            pressedButtons.remove(button)
-        }
+       button.setBackgroundColor(unpressedBgColor)
+       button.setTextColor(unpressedTextColor)
+
+       pressedButtons.remove(button)
+
     }
     fun enableButton(button: Button) {
-        host.runOnUiThread {
-            button.isEnabled = true
-        }
+
+        button.isEnabled = true
+
     }
 
     fun disableButton(button: Button) {
-        host.runOnUiThread {
-            button.isEnabled = false
-        }
+
+        button.isEnabled = false
+
     }
 
     fun disableButtons(buttons: Array<Button?>) {
@@ -78,8 +78,7 @@ class ButtonHandler(var host: AppCompatActivity) {
      *  odd reason. Setting it works of course but not getting.
      *
      *  Each button could have a state of its own but didn't feel it would be worth it to
-     *  change it since I'm guessing it would still be too slow to have them all rows
-     *  flashing every time while millions of them are usually generated before 7 wins.
+     *  change it for now
      *
      */
     inner class HighlightHandler() {
@@ -89,11 +88,11 @@ class ButtonHandler(var host: AppCompatActivity) {
 
         fun handleHighlights(buttons: List<Button>) {
 
-            host.runOnUiThread {
-                // first returning previously highlighted buttons to their original color
-                removeHighlights()
-                addHighlights(buttons)
-            }
+
+            // first returning previously highlighted buttons to their original color
+            removeHighlights()
+            addHighlights(buttons)
+
         }
         fun removeHighlights() {
             if (highlightedButtons.isNotEmpty()) {

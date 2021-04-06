@@ -117,11 +117,11 @@ class MainActivity : AppCompatActivity() {
 
            val resultString =  stringHandler.stringifyFinalResults(results)
 
-           runOnUiThread {
-               summaryText.text=resultString
-               summaryText.setTextColor(Color.DKGRAY)
-               summaryText.setPadding(20,20,20,20)
-           }
+
+           summaryText.text=resultString
+           summaryText.setTextColor(Color.DKGRAY)
+           summaryText.setPadding(20,20,20,20)
+
 
            // When the Lottery is finished the index 6 is filled, in index 0 is filled (see more
            // about this logic in LottoService and LottoCalculator classes comments

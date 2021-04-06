@@ -15,7 +15,7 @@ class LottoService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
-        var playerNumbers : IntArray = intent!!.extras!!.get("Player Numbers") as IntArray
+        val playerNumbers : IntArray = intent!!.extras!!.get("Player Numbers") as IntArray
 
         /*
         This version would have sent the broadcast only once, after whole lottery is done.
@@ -48,10 +48,12 @@ class LottoService : Service() {
 
             while (lottoCalculator.currentBest < 7) {
 
-                var generatedRow = lottoCalculator.doSingleLottery()
-                //var i = Intent("single row")
-                //i.putExtra("row", generatedRow.toIntArray())
-                //manager.sendBroadcast(i)
+                val generatedRow = lottoCalculator.doSingleLottery()
+                val i = Intent("single row")
+                // i.putExtra("row", generatedRow.toIntArray())
+                // manager.sendBroadcast(i)
+                // Thread.sleep(50)
+
 
                 if (currentBestWatcher != lottoCalculator.currentBest) {
 
@@ -62,14 +64,14 @@ class LottoService : Service() {
                     * whole lottery would have taken ages.
                     *
                     * */
-                    var i = Intent("single row")
+                    val i = Intent("single row")
                     i.putExtra("row", generatedRow.toIntArray())
                     manager.sendBroadcast(i)
 
-                    // Thread.sleep(500)
-                    var resultArray : Array<IntArray> = lottoCalculator.buildFinalResultArray()
 
-                    var resultIntent = Intent("Lottery Results")
+                    val resultArray : Array<IntArray> = lottoCalculator.buildFinalResultArray()
+
+                    val resultIntent = Intent("Lottery Results")
                     resultIntent.putExtra("Result Array", resultArray)
                     manager.sendBroadcast(resultIntent)
 
