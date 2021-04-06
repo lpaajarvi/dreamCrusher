@@ -82,6 +82,7 @@ class LottoService : Service() {
                     currentBestWatcher = lottoCalculator.currentBest
                 }
             }
+            stopSelf()
         }
 
         return START_STICKY
