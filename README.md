@@ -1,6 +1,7 @@
 Android Studio Project, 05/04/2021
 
 Demo can be viewed here https://youtu.be/VGZJiAhbvYM
+[UPDATE flashier demo here and slow intro how you can achieve the same] It might take weeks or months for the lottery to finish with that change so not recommended. Idea is though that you can see every single row that is being generated on your screen.] https://youtu.be/4ZqyoQytziQ
 
 Most of the code under folder https://github.com/lpaajarvi/dreamCrusher/tree/main/app/src/main/java/fi/lpaajarvi/dreamcrusher
 
